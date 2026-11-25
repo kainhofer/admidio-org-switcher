@@ -1,5 +1,5 @@
 <?php
-namespace AdmidioPlugin\OrganizationSwitcher;
+namespace AdmidioPlugin\OrgSwitcher;
 
 use Admidio\Hooks\Hooks;
 use Admidio\Infrastructure\Database;
@@ -29,9 +29,9 @@ use ReflectionProperty;
  * @license https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License v2.0 only
  ***********************************************************************************************
  */
-final class OrganizationSwitcher
+final class OrgSwitcher
 {
-    public const ID = 'organization-switcher';
+    public const ID = 'org-switcher';
     private const CORE_HOOKS = 'Admidio\\UI\\Component\\PageExtensions';
 
     /** @var array<int,array<string,mixed>>|null the organizations of the current user, per request */
@@ -84,7 +84,7 @@ final class OrganizationSwitcher
         if (self::isAvailable()) {
             $items[] = array(
                 'id' => self::ID,
-                'label' => 'PLG_ORGANIZATION_SWITCHER_SWITCH',
+                'label' => 'PLG_ORG_SWITCHER_SWITCH',
                 'icon' => 'bi-arrow-left-right',
                 'url' => self::getDialogUrl(),
                 'popup' => true
@@ -104,7 +104,7 @@ final class OrganizationSwitcher
             return;
         }
         $url = json_encode(self::getDialogUrl());
-        $label = json_encode($gL10n->get('PLG_ORGANIZATION_SWITCHER_SWITCH'));
+        $label = json_encode($gL10n->get('PLG_ORG_SWITCHER_SWITCH'));
         $page->addJavascript('
             var organizationSwitcherLink = $("<a class=\"nav-link link-primary openPopup\" href=\"javascript:void(0);\"></a>").attr("data-href", ' . $url . ')
                 .append($("<i class=\"bi bi-arrow-left-right me-1\"></i>")).append(document.createTextNode(' . $label . '));
@@ -159,7 +159,7 @@ final class OrganizationSwitcher
             }
         }
         if ($target === null || !$target['member']) {
-            throw new Exception('PLG_ORGANIZATION_SWITCHER_NOT_MEMBER');
+            throw new Exception('PLG_ORG_SWITCHER_NOT_MEMBER');
         }
         if ($target['current']) {
             return;

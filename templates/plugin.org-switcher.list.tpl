@@ -7,7 +7,7 @@
             {if $org.current}
                 <div class="list-group-item active" aria-current="true">
                     <strong>{$org.longname|escape}</strong> <small>({$org.shortname|escape})</small>
-                    <span class="badge text-bg-light ms-2">{$l10n->get('PLG_ORGANIZATION_SWITCHER_CURRENT')}</span>
+                    <span class="badge text-bg-light ms-2">{$l10n->get('PLG_ORG_SWITCHER_CURRENT')}</span>
                 </div>
             {else}
                 <button type="submit" name="organization" value="{$org.shortname|escape}" class="list-group-item list-group-item-action">

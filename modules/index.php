@@ -17,14 +17,14 @@ use Admidio\Infrastructure\Plugins\Plugin;
 use Admidio\Infrastructure\Plugins\PluginRegistry;
 use Admidio\Infrastructure\Utils\SecurityUtils;
 use Admidio\UI\Presenter\PagePresenter;
-use AdmidioPlugin\OrganizationSwitcher\OrganizationSwitcher;
+use AdmidioPlugin\OrgSwitcher\OrgSwitcher;
 
 try {
     require_once(__DIR__ . '/../../../system/common.php');
     require(__DIR__ . '/../../../system/login_valid.php');
 
-    $plugin = PluginRegistry::get(OrganizationSwitcher::ID);
-    $switcher = new OrganizationSwitcher($gDb);
+    $plugin = PluginRegistry::get(OrgSwitcher::ID);
+    $switcher = new OrgSwitcher($gDb);
     $getMode = admFuncVariableIsValid($_GET, 'mode', 'string', array('validValues' => array('dialog', 'list', 'switch'), 'defaultValue' => 'list'));
 
     if ($getMode === 'switch') {
@@ -46,14 +46,14 @@ try {
         $smarty->assign('organizations', $organizations);
         $smarty->assign('switchUrl', $switchUrl);
         $smarty->assign('csrfToken', $gCurrentSession->getCsrfToken());
-        echo $smarty->fetch('plugin.organization-switcher.dialog.tpl');
+        echo $smarty->fetch('plugin.org-switcher.dialog.tpl');
         exit();
     }
 
-    $page = PagePresenter::withHtmlIDAndHeadline('adm_plg_organization_switcher', $gL10n->get('PLG_ORGANIZATION_SWITCHER_SWITCH'));
+    $page = PagePresenter::withHtmlIDAndHeadline('adm_plg_org_switcher', $gL10n->get('PLG_ORG_SWITCHER_SWITCH'));
     $gNavigation->addUrl(CURRENT_URL, $page->getHeadline());
     $page->addTemplateFolder($plugin->getDirectory(Plugin::DIR_TEMPLATES));
-    $page->addTemplateFile('plugin.organization-switcher.tpl');
+    $page->addTemplateFile('plugin.org-switcher.tpl');
     $page->assignSmartyVariable('organizations', $organizations);
     $page->assignSmartyVariable('switchUrl', $switchUrl);
     $page->assignSmartyVariable('csrfToken', $gCurrentSession->getCsrfToken());

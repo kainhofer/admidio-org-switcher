@@ -1,5 +1,5 @@
 <?php
-namespace AdmidioPlugin\OrganizationSwitcher\Tests\Unit;
+namespace AdmidioPlugin\OrgSwitcher\Tests\Unit;
 
 use Admidio\Infrastructure\Plugins\Plugin;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +11,7 @@ final class ManifestTest extends TestCase
         $plugin = Plugin::read(dirname(__DIR__, 2));
 
         $this->assertTrue($plugin->isValid(), (string)$plugin->error);
-        $this->assertSame('organization-switcher', $plugin->id);
+        $this->assertSame('org-switcher', $plugin->id);
         $this->assertContains('index.php', $plugin->getPages());
     }
 
@@ -32,7 +32,7 @@ final class ManifestTest extends TestCase
         $used = array();
         foreach (array('src', 'modules', 'templates') as $directory) {
             foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($root . '/' . $directory, \FilesystemIterator::SKIP_DOTS)) as $file) {
-                preg_match_all('/PLG_ORGANIZATION_SWITCHER_[A-Z0-9_]*[A-Z0-9]/', (string)file_get_contents($file->getPathname()), $matches);
+                preg_match_all('/PLG_ORG_SWITCHER_[A-Z0-9_]*[A-Z0-9]/', (string)file_get_contents($file->getPathname()), $matches);
                 $used = array_merge($used, $matches[0]);
             }
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="PLG_ORGANIZATION_SWITCHER_CURRENT">Current</string>
-  <string name="PLG_ORGANIZATION_SWITCHER_DESC">You are a member of these organizations. Choose the one you want to work in.</string>
-  <string name="PLG_ORGANIZATION_SWITCHER_DESCRIPTION">An entry in the profile menu with which a member of several organizations changes to another one without logging out.</string>
-  <string name="PLG_ORGANIZATION_SWITCHER_NAME">Organization switcher</string>
-  <string name="PLG_ORGANIZATION_SWITCHER_NOT_MEMBER">You are no active member of this organization.</string>
-  <string name="PLG_ORGANIZATION_SWITCHER_SWITCH">Switch organization</string>
+  <string name="PLG_ORG_SWITCHER_CURRENT">Current</string>
+  <string name="PLG_ORG_SWITCHER_DESC">You are a member of these organizations. Choose the one you want to work in.</string>
+  <string name="PLG_ORG_SWITCHER_DESCRIPTION">An entry in the profile menu with which a member of several organizations changes to another one without logging out.</string>
+  <string name="PLG_ORG_SWITCHER_NAME">Organization switcher</string>
+  <string name="PLG_ORG_SWITCHER_NOT_MEMBER">You are no active member of this organization.</string>
+  <string name="PLG_ORG_SWITCHER_SWITCH">Switch organization</string>
 </resources>

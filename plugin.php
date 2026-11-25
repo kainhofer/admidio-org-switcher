@@ -12,10 +12,10 @@
  ***********************************************************************************************
  */
 
-use AdmidioPlugin\OrganizationSwitcher\OrganizationSwitcher;
+use AdmidioPlugin\OrgSwitcher\OrgSwitcher;
 
 if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
     exit('This page may not be called directly!');
 }
 
-OrganizationSwitcher::register();
+OrgSwitcher::register();
