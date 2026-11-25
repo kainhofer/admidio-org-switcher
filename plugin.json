@@ -1,0 +1,17 @@
+{
+    "id": "organization-switcher",
+    "name": "PLG_ORGANIZATION_SWITCHER_NAME",
+    "description": "PLG_ORGANIZATION_SWITCHER_DESCRIPTION",
+    "version": "0.1.0",
+    "author": "Reinhold Kainhofer",
+    "url": "https://github.com/kainhofer/admidio-org-switcher/",
+    "icon": "bi-arrow-left-right",
+    "menu": false,
+    "requires": {
+        "admidio": ">=6.0",
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "AdmidioPlugin\\OrganizationSwitcher\\": "src/"
+    }
+}

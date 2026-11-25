@@ -1,0 +1,11 @@
+# Default
+* text=auto eol=lf
+
+# Images
+*.png binary
+*.jpg binary
+
+# Not part of the plugin archive
+/.git* export-ignore
+/.github export-ignore
+/tests export-ignore
